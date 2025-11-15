@@ -1,0 +1,77 @@
+{% extends 'base.html' %}
+{% block title %} Project Home {% endblock %}
+{% block header %} 전체 프로젝트 설치 및 시행 기초 {% endblock %}
+{% block content %}
+<section>
+  <h2>암호: admin/admin, test/testing1234, test2/testing1234</h2>
+  <h2>start Django project</h2>
+  <pre>django-admin startproject myproject
+cd myproject
+python manage.py runserver</pre>
+  <h2>create an app</h2>
+  <pre>python manage.py startapp myapp</pre>
+  <h3>Configure settings: Edit myproject/settings.py</h3>
+  <pre>INSTALLED_APPS = [
+    # ...
+    'myapp.apps.MyappConfig',
+]</pre>
+</section>
+<section>
+    <h2>project structure</h2>
+<pre>
+/pcra-django-v1
+  /atom
+    /migration
+    /static
+    /templates
+    __init__.py
+    admin.py
+    app.py
+    urls.py
+    views.py
+  /quark
+    __init__.py
+    asgi.py
+    settings.py
+    urls.py
+    wsgi.py
+manage.py
+</pre>
+<h3>runserver</h3>
+<pre>python manage.py runserver</pre>
+</section>
+
+<section>
+  <h3>superuser 생성</h3>
+  <pre>python manage.py createsuperuser
+# db migration이 없어서 애러남
+python manage.py makemigrations
+python manage.py migrate
+  </pre>
+  <h3>model을 생성/변경하면 migration을 수행해야함</h3>
+  <pre>python manage.py makemigrations
+python manage.py migrate</pre>
+
+<pre>
+  ....
+....
+</pre>
+</section>
+
+  <section>
+    <h3>vs code에서 숨기기 설정: 설정에서 files excludes 검색 해서 아래 설정 추가</h3>
+  <div>
+  "files.exclude": { <br>
+    "**/.DS_Store": true, 이건 mac에서만 해당<br>
+    "**/.git": true,<br>
+    "**/.vscode": true,<br>
+    "**/__pycache__": true,<br>
+    "**/.gitignore": true,<br>
+    "**/.idea": true,<br>
+    "**/.venv": true
+  }
+  </div>
+  </section>
+
+
+{% endblock %}
