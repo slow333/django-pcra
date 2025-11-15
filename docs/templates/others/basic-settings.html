@@ -3,30 +3,42 @@
 {% block header %} python web server 설치 {% endblock %}
 
 {% block content %}
+  <section>
+    <h3>vs code에서 숨기기 설정: 설정에서 files excludes 검색 해서 아래 설정 추가</h3>
+  <div>
+  "files.exclude": { <br>
+    "**/.DS_Store": true, 이건 mac에서만 해당<br>
+    "**/.git": true,<br>
+    "**/.vscode": true,<br>
+    "**/__pycache__": true,<br>
+    "**/.gitignore": true,<br>
+    "**/.idea": true,<br>
+    "**/.venv": true
+  }
+  </div>
+  </section>
 <section>
-<h3>wsgi, uwsgi 설정</h3>
-<h4>1. Python 설치</h4>
-<h5>Python
-3 설치 확인 및 설치: RHEL 8에는 기본 Python 3가 설치되어 있을 수
-있습니다.</h5>
-<p>python3 –version ### 설치되어 있지 않다면 다음과 같이 설치합니다.
-sudo dnf install python3 ### Flask 설치: 가상 환경을 설정하여 Flask를
-설치하는 것이 좋습니다.</p>
-<pre>가상환경 생성
-python3 -m venv myenv
-가상환경 활성화
-source myenv/bin/activate
-Flask 설치
-pip install Flask</pre>
+  <h3>wsgi, uwsgi 설정</h3>
+  <h4>1. Python 설치</h4>
+  <h5>Python 설치 확인 및 설치: RHEL 8에는 기본 Python 3가 설치되어 있을 수
+  있습니다.</h5>
+  <p>python3 –version ### 설치되어 있지 않다면 다음과 같이 설치합니다.
+  sudo dnf install python3 ### Flask 설치: 가상 환경을 설정하여 Flask를
+  설치하는 것이 좋습니다.</p>
+  <pre>가상환경 생성
+  python3 -m venv myenv
+  가상환경 활성화
+  source myenv/bin/activate
+  Flask 설치
+  pip install Flask</pre>
 
-<h4>3. WSGI 서버 (Gunicorn) 설치 및 실행</h4>
-<pre>Gunicorn 설치:
-  pip install gunicorn  
-Flask 앱 실행: 가상 환경이 활성화된 상태에서 Gunicorn을 사용하여 Flask 앱을 실행합니다.
-  gunicorn -w 4 app:app  
-위 명령어는 4개의 워커 프로세스로 Flask 앱을 실행합니다.</pre>
-<h4>4. 웹 서버 (Nginx)
-설치 및 Reverse Proxy 설정</h4>
+  <h4>3. WSGI 서버 (Gunicorn) 설치 및 실행</h4>
+  <pre>Gunicorn 설치:
+    pip install gunicorn  
+  Flask 앱 실행: 가상 환경이 활성화된 상태에서 Gunicorn을 사용하여 Flask 앱을 실행합니다.
+    gunicorn -w 4 app:app  
+  위 명령어는 4개의 워커 프로세스로 Flask 앱을 실행합니다.</pre>
+  <h4>4. 웹 서버 (Nginx) 설치 및 Reverse Proxy 설정</h4>
 <pre>Nginx 설치:
   sudo dnf install nginx  
 Nginx 설정: sudo vi /etc/nginx/conf.d/flask_app.conf 파일을 생성하고 다음과 같이 Reverse Proxy 설정을 추가합니다.

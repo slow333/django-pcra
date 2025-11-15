@@ -6,3 +6,7 @@ def index(requst):
 
 def contents(requst):
     return render(requst, 'contents.html')
+
+def html_css(requst):
+    return render(requst, 'others/html_css.html')
+
