@@ -1,0 +1,103 @@
+<div class="container d-flex flex-column align-items-start gap-2 
+    p-3 rounded-2 bg-white shadow">
+    <div class="text-white text-center mx-auto border-bottom w-100 btn btn-success px-0 py-1 fs-5" data-bs-toggle="collapse" 
+        data-bs-target="#sidebar-apps" aria-controls="sidebar-apps" 
+        aria-expanded="{% if '/blog/' in request.path or '/pcra/' in request.path %}true{% else %}false{% endif %}" aria-label="Toggle navigation">Applications</div>
+    <div class="list-group collapse navbar-collapse 
+        {% if '/blog/' in request.path or '/pcra/' in request.path %}show{% endif %} w-100 " id="sidebar-apps">
+        <a class="list-group-item list-group-item-action {% if '/blog/' in request.path %}active{% endif %}" 
+            href="/blog/">Blog</a>
+        <a class="list-group-item list-group-item-action {% if '/pcra/commands/' in request.path %}active{% endif %}" 
+            href="/pcra/commands/">Commands</a>
+        <a class="list-group-item list-group-item-action {% if '/pcra/sar_cpu/' in request.path %}active{% endif %}" 
+            href="/pcra/sar_cpu/">CPU</a>
+        <a class="list-group-item list-group-item-action {% if '/pcra/sar_memory/' in request.path %}active{% endif %}" 
+            href="/pcra/sar_memory/">Memory</a>
+        <a class="list-group-item list-group-item-action {% if '/pcra/servers/' in request.path %}active{% endif %}" 
+            href="/pcra/servers/">Servers</a>
+        <a class="list-group-item list-group-item-action {% if '/pcra/hostinfos/' in request.path %}active{% endif %}" 
+            href="/pcra/hostinfos/">Host Infos</a>
+        <a class="list-group-item list-group-item-action {% if '/pcra/sar_traffic/' in request.path %}active{% endif %}" 
+            href="/pcra/sar_traffic/">Traffic</a>
+        <a class="list-group-item list-group-item-action {% if '/pcra/sar_traffic/graph/' in request.path %}active{% endif %}" 
+            href="/pcra/sar_traffic/graph/">Traffic Graph</a>
+    </div>
+    <h3 class="text-muted text-center mx-auto border-bottom w-100">Documents</h3>
+    <button class="btn btn-secondary w-100 px-0 py-1" type="button" 
+        data-bs-toggle="collapse" data-bs-target="#docs-flask" aria-controls="docs-flask" 
+        aria-expanded="{% if 'docs/flask' in request.path %}true{% else %}false{% endif %}" aria-label="Toggle navigation"> Flask
+    </button>
+    <div class="list-group collapse navbar-collapse list-group-horizontal-xl {% if 'docs/flask' in request.path %}show{% endif %} w-100" id="docs-flask">
+        <a class="list-group-item list-group-item-action {% if '/docs/flask/install' in request.path %}active{% endif %}" href="/docs/flask/install">flask 설치</a>
+        <a class="list-group-item list-group-item-action {% if '/docs/flask/note' in request.path %}active{% endif %}" 
+            href="/docs/flask/note">flask 주의사항</a>
+        <a class="list-group-item list-group-item-action {% if '/docs/flask/core-crud' in request.path %}active{% endif %}"
+            href="/docs/flask/core-crud">flask core CRUD</a>
+        <a class="list-group-item list-group-item-action {% if '/docs/flask/db-setup' in request.path %}active{% endif %}" 
+            href="/docs/flask/db-setup">flask db setup</a>
+    </div>
+    <button class="btn btn-secondary w-100 px-0 py-1" 
+        type="button" data-bs-toggle="collapse" 
+        data-bs-target="#docs-psql" aria-controls="docs-psql"
+        aria-expanded="{% if 'docs/psql' in request.path %}true{% else %}false{% endif %}" aria-label="Toggle navigation">PSQL
+    </button>
+    <div class="list-group collapse navbar-collapse list-group-horizontal-xl {% if 'docs/psql' in request.path %}show{% endif %} w-100" id="docs-psql">
+        <a class="list-group-item list-group-item-action {% if '/docs/psql/datatype' in request.path %}active{% endif %}" 
+            href="/docs/psql/datatype">psql datatype</a>
+        <a class="list-group-item list-group-item-action {% if '/docs/psql/crud' in request.path %}active{% endif %}" 
+            href="/docs/psql/crud">psql CRUD</a>  
+        <a class="list-group-item list-group-item-action {% if '/docs/psql/sqlalchemy' in request.path %}active{% endif %}" 
+            href="/docs/psql/sqlalchemy">sqlalchemy</a>
+        <a class="list-group-item list-group-item-action {% if '/docs/psql/select' in request.path %}active{% endif %}" 
+            href="/docs/psql/select">psql Select</a>
+        <a class="list-group-item list-group-item-action {% if '/docs/psql/constraints' in request.path %}active{% endif %}" 
+            href="/docs/psql/constraints">psql constraints</a>
+        <a class="list-group-item list-group-item-action {% if '/docs/psql/groupby' in request.path %}active{% endif %}" 
+            href="/docs/psql/groupby">psql groupby</a>
+        <a class="list-group-item list-group-item-action {% if '/docs/psql/join' in request.path %}active{% endif %}" 
+            href="/docs/psql/join">psql join</a>
+        <a class="list-group-item list-group-item-action {% if '/docs/psql/aggregate' in request.path %}active{% endif %}" 
+            href="/docs/psql/aggregate">psql aggregate</a>
+        <a class="list-group-item list-group-item-action {% if '/docs/psql/functions' in request.path %}active{% endif %}" 
+            href="/docs/psql/functions">psql functions</a>
+        <a class="list-group-item list-group-item-action {% if '/docs/psql/procedure-trigger' in request.path %}active{% endif %}" 
+            href="/docs/psql/procedure-trigger">psql procedure trigger</a>
+    </div>
+    <button class="btn btn-secondary w-100 px-0 py-1" 
+        type="button" data-bs-toggle="collapse" 
+        data-bs-target="#docs-python" aria-controls="docs-python"
+        aria-expanded="{% if 'docs/python' in request.path %}true{% else %}false{% endif %}" aria-label="Toggle navigation">Python
+    </button>
+    <div class="list-group collapse navbar-collapse list-group-horizontal-xl {% if 'docs/python' in request.path %}show{% endif %} w-100" id="docs-python">
+        <a class="list-group-item list-group-item-action {% if '/docs/python/datatype' in request.path %}active{% endif %}"
+             href="/docs/python/datatype">python datatype</a>
+        <a class="list-group-item list-group-item-action {% if '/docs/python/print-format' in request.path %}active{% endif %}" 
+            href="/docs/python/print-format">python print format</a>
+        <a class="list-group-item list-group-item-action {% if '/docs/python/loop' in request.path %}active{% endif %}" 
+            href="/docs/python/loop">python loop</a>
+        <a class="list-group-item list-group-item-action {% if '/docs/python/def-file' in request.path %}active{% endif %}"
+             href="/docs/python/def-file">python def file</a>
+        <a class="list-group-item list-group-item-action {% if '/docs/python/class-module' in request.path %}active{% endif %}" 
+            href="/docs/python/class-module">python class module</a>
+        <a class="list-group-item list-group-item-action {% if '/docs/python/try-except' in request.path %}active{% endif %}" 
+            href="/docs/python/try-except">python try except</a>
+        <a class="list-group-item list-group-item-action {% if '/docs/python/py-library' in request.path %}active{% endif %}" 
+            href="/docs/python/py-library">python library</a>
+        <a class="list-group-item list-group-item-action {% if '/docs/python/decorator' in request.path %}active{% endif %}" 
+            href="/docs/python/decorator">python decorator</a>
+        <a class="list-group-item list-group-item-action {% if '/docs/python/regexp' in request.path %}active{% endif %}" 
+            href="/docs/python/regexp">python regexp</a>
+    </div>
+    <button class="btn btn-secondary w-100 px-0 py-1" type="button" 
+        data-bs-toggle="collapse" data-bs-target="#docs-others" aria-controls="docs-others" 
+        aria-expanded="{% if 'docs/others' in request.path %}true{% else %}false{% endif %}" aria-label="Toggle navigation"> Others
+    </button>    
+    <div class="list-group collapse navbar-collapse list-group-horizontal-xl {% if 'docs/others' in request.path %}show{% endif %} w-100" id="docs-others">
+        <a class="list-group-item list-group-item-action {% if '/docs/others/basic-settings' in request.path %}active{% endif %}" 
+            href="/docs/others/basic-settings">basic settings</a>
+        <a class="list-group-item list-group-item-action {% if '/docs/others/html-css' in request.path %}active{% endif %}" 
+            href="/docs/others/html-css">html css</a>
+        <a class="list-group-item list-group-item-action {% if '/docs/others/linux' in request.path %}active{% endif %}" 
+            href="/docs/others/linux">linux</a>
+    </div>
+</div>

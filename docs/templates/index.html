@@ -3,12 +3,13 @@
 {% block header %} 전체 프로젝트 설치 및 시행 기초 {% endblock %}
 {% block content %}
 <section>
-  <h2>암호: admin/admin, test/testing1234, test2/testing1234</h2>
-  <h2>start Django project</h2>
+  <h3>초기 암호</h3>
+  <p>암호: admin/admin, test/testing1234, test2/testing1234</p>
+  <h3>start Django project</h3>
   <pre>django-admin startproject myproject
 cd myproject
 python manage.py runserver</pre>
-  <h2>create an app</h2>
+  <h3>create an app</h3>
   <pre>python manage.py startapp myapp</pre>
   <h3>Configure settings: Edit myproject/settings.py</h3>
   <pre>INSTALLED_APPS = [
@@ -17,7 +18,7 @@ python manage.py runserver</pre>
 ]</pre>
 </section>
 <section>
-    <h2>project structure</h2>
+    <h3>project structure</h3>
 <pre>
 /pcra-django-v1
   /atom
@@ -103,6 +104,22 @@ h: Hour (12-hour clock), zero-padded (e.g., 01-12)
 i: Minute, zero-padded (e.g., 00-59)
 s: Second, zero-padded (e.g., 00-59)    
   </pre>
+</section>
+<section>
+  <h3>화면 이쁘게 해주는 crispy 설정</h3>
+  <pre>pip install crispy-bootstrap5
+# settings.py에 추가
+   
+INSTALLED_APPS = (
+    ...
+    "crispy_forms",
+    "crispy_bootstrap5",
+    ...
+)
 
+CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
+
+CRISPY_TEMPLATE_PACK = "bootstrap5"    
+  </pre>
 </section>
 {% endblock %}

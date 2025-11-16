@@ -10,8 +10,5 @@ def home(request):
     }
     return render(request, 'blog/home.html', context)
 
-def about(request):
-    return render(request, 'blog/about.html', {'title': 'About'})
-
 def index(request):
     return render(request, 'index.html')
