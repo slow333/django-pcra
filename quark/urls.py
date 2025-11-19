@@ -6,12 +6,14 @@ from django.conf.urls.static import static
 from users import views as user_views
 from blog import views as blog_views
 
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('register/', user_views.register, name='register'),
     path('login/', auth_views.LoginView.as_view(template_name='users/login.html'), name='login'),
     path('logout/', user_views.logout_view, name='logout'),
     path('profile/', user_views.profile_view, name='profile'),
+    path('idol/', include('idolImages.urls')),
     path('', blog_views.index, name='main-home'),
     path('blog/', blog_views.home, name='blog-home'),
     path('pcra/', include('atom.urls')),
