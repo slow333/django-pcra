@@ -13,9 +13,9 @@ urlpatterns = [
     path('login/', auth_views.LoginView.as_view(template_name='users/login.html'), name='login'),
     path('logout/', user_views.logout_view, name='logout'),
     path('profile/', user_views.profile_view, name='profile'),
-    path('idol/', include('idolImages.urls')),
     path('', blog_views.index, name='main-home'),
-    path('blog/', blog_views.home, name='blog-home'),
+    path('idol/', include('moon.urls')),
+    path('blog/', include('blog.urls')),
     path('pcra/', include('atom.urls')),
     path('docs/', include('docs.urls')),
 ]

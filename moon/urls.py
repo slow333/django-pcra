@@ -1,6 +1,7 @@
 from django.urls import path
 from . import views
 
+# idol/
 urlpatterns = [
     path('', views.idol_home, name='idol-home'),
     path('upload/', views.upload, name='idol-upload'),

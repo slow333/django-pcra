@@ -19,7 +19,7 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
     'users.apps.UsersConfig',
     'blog.apps.BlogConfig',
-    'idolImages.apps.IdolimagesConfig',
+    'moon.apps.MoonConfig',
     'docs.apps.DocsConfig',
     'atom.apps.AtomConfig',
     'django.contrib.admin',
@@ -113,6 +113,6 @@ MEDIA_URL = '/media/'
 CRISPY_TEMPLATE_PACK = "bootstrap5"
 CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
 
-LOGIN_REDIRECT_URL = 'blog-home'
+LOGIN_REDIRECT_URL = 'idol-home'
 LOGIN_URL = 'login'
 

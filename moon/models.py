@@ -1,6 +1,6 @@
 from django.db import models
 
-class Image(models.Model):
+class IdolImage(models.Model):
     title = models.CharField(max_length=100)
     image = models.ImageField(upload_to='idol_images/')
     thumbnail = models.ImageField(upload_to='thumbnails/', blank=True, null=True)
@@ -16,6 +16,8 @@ class Image(models.Model):
             if img.height > 200 or img.width > 200:
                 img.thumbnail((200, 200))
             thumb_io = BytesIO()
+            if img.mode in ("RGBA", "P"):
+                img = img.convert("RGB")
             img.save(thumb_io, format='JPEG')
             self.thumbnail.save(f'thumbnail_{self.image.name}', ContentFile(thumb_io.getvalue()), save=False)
             super().save(*args, **kwargs)
