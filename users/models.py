@@ -9,17 +9,14 @@ class Profile(models.Model):
 
     def save(self, *args, **kwargs):
         super().save(*args, **kwargs)
-        try:
-            with Image.open(self.image.path) as img:
-                if img.mode in ("RGBA", "P"):
-                    img = img.convert("RGB")
+        img = Image.open(self.image.path)
+        if img.mode in ("RGBA", "P"):
+            img = img.convert("RGB")
 
-                if img.height > 300 or img.width > 300:
-                    output_size = (300, 300)
-                    img.thumbnail(output_size)
-                    img.save(self.image.path)
-        except (FileNotFoundError, ValueError, OSError):
-            pass
+        if img.height > 300 or img.width > 300:
+            output_size = (300, 300)
+            img.thumbnail(output_size)
+            img.save(self.image.path)
 
     def __str__(self):
         return f'{self.user.username} Profile'

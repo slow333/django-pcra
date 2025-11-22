@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% block content %}
+    <h1 class="mb-3">Posts by {{ view.kwargs.username }}({{ page_obj.paginator.count}})</h1>
     <div class="text-end">
       <a href="{% url 'post-create' %}" class="btn btn-outline-secondary btn-sm mb-2 ">New Post</a>
     </div>
@@ -16,7 +17,6 @@
             </div>
             <h2><a class="article-title" href="{% url 'post-detail' post.id %}">{{ post.title }}</a></h2>
             <p class="article-content m-0">{{ post.content }}</p>
-            <!-- <small class="text-muted mt-0">updated : {{ post.date_updated|date:"Y-m-d H:i"}}</small> -->
           </div>
         </article>
     {% endfor %}
