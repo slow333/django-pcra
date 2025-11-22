@@ -7,12 +7,6 @@ from django.views.generic import (
     ListView, DetailView, CreateView, UpdateView, DeleteView
     )
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
-def blog_home(request):
-    context = {
-        'posts': Post.objects.all(),
-        'title': 'Home'
-    }
-    return render(request, 'blog/home.html', context)
 
 class PostListView(ListView):
     model = Post
@@ -71,6 +65,12 @@ class PostDeleteView(LoginRequiredMixin,UserPassesTestMixin,DeleteView):
             return True
         return False
     
+def blog_home(request):
+    context = {
+        'posts': Post.objects.all(),
+        'title': 'Home'
+    }
+    return render(request, 'blog/home.html', context)
 
 def blog_create(request):
     user = request.user

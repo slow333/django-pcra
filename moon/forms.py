@@ -12,11 +12,11 @@ class IdolForm(ModelForm):
         model = IdolImage
         fields = ['title','image', 'thumbnail']
 
-class IdolTitleForm(forms.Form):
-    # label=False를 추가하여 이 필드의 레이블을 비활성화할 수 있습니다.
-    title = forms.CharField(max_length=100, label=False)
-
+class IdolTitleForm(ModelForm):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.helper = FormHelper()
         self.helper.form_show_labels = False # 폼의 모든 레이블을 숨깁니다.
+    class Meta:
+        model = IdolImage
+        fields = ['title']

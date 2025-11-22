@@ -16,7 +16,6 @@
             </div>
             <h2><a class="article-title" href="{% url 'post-detail' post.id %}">{{ post.title }}</a></h2>
             <p class="article-content m-0">{{ post.content }}</p>
-            <!-- <small class="text-muted mt-0">updated : {{ post.date_updated|date:"Y-m-d H:i"}}</small> -->
           </div>
         </article>
     {% endfor %}

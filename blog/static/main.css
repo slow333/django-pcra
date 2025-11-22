@@ -166,6 +166,11 @@ code {
   background-color: #428bca;
   color: #ffffff;
 }
+#toggled-form input {
+  padding:0; margin:0;
+  height: 35px; 
+  border: 1px solid #aaa;
+}
 /* [data-bs-target="#sidebar-apps"]:hover{
   cursor: pointer;
   color: orangered;
